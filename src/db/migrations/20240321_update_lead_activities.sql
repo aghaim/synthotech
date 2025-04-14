@@ -1,0 +1,2 @@
+-- Update the activity_type ENUM in lead_activities table to include 'conversion'
+ALTER TABLE lead_activities MODIFY COLUMN activity_type ENUM('email', 'call', 'meeting', 'note', 'conversion') NOT NULL; 

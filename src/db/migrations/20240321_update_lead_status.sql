@@ -1,0 +1,2 @@
+-- Update the status ENUM in leads table to include 'converted'
+ALTER TABLE leads MODIFY COLUMN status ENUM('new', 'contacted', 'qualified', 'proposal', 'negotiation', 'closed_won', 'closed_lost', 'converted') NOT NULL DEFAULT 'new'; 

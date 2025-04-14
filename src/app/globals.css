@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+  --gradient-start: #0ea5e9;
+  --gradient-end: #1e40af;
+  --accent-color: #3b82f6;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  background-image: 
+    radial-gradient(circle at 100% 0%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(14, 165, 233, 0.1) 0%, transparent 50%);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 font-bold;
+  }
+
+  .glass-effect {
+    @apply bg-white border border-gray-200 shadow-sm;
+  }
+
+  .glass-effect h3 {
+    @apply text-xl font-semibold text-gray-900 mb-3;
+  }
+
+  .glass-effect p {
+    @apply text-gray-900 font-medium;
+  }
+
+  .futuristic-card {
+    @apply glass-effect rounded-lg p-6 transition-all duration-300 
+           hover:shadow-md hover:border-blue-100;
+  }
+
+  .futuristic-card h2 {
+    @apply text-2xl font-bold text-gray-900 mb-4;
+  }
+
+  .futuristic-card p {
+    @apply text-gray-900 leading-relaxed;
+  }
+
+  .futuristic-button {
+    @apply px-6 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-blue-800 text-white 
+           shadow-sm hover:shadow-md transition-all duration-300 
+           hover:scale-105 active:scale-95 font-medium;
+  }
+
+  .futuristic-input {
+    @apply px-4 py-2 rounded-lg border border-gray-200 focus:border-blue-500 
+           focus:ring-2 focus:ring-blue-200 transition-all duration-300;
+  }
+
+  .nav-link {
+    @apply text-gray-700 hover:text-blue-600 transition-colors duration-200 
+           relative after:absolute after:bottom-0 after:left-0 
+           after:w-0 after:h-0.5 after:bg-blue-600 
+           hover:after:w-full after:transition-all after:duration-300;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold text-gray-900 mb-6 text-center;
+  }
+
+  .section-subtitle {
+    @apply text-xl text-gray-600 mb-8 text-center max-w-2xl mx-auto;
+  }
+
+  .card-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  .feature-card {
+    @apply futuristic-card p-8 hover:bg-gray-50;
+  }
+
+  .feature-card h3 {
+    @apply text-xl font-semibold text-gray-900 mb-3;
+  }
+
+  .feature-card p {
+    @apply text-gray-900 font-medium;
+  }
+
+  .service-card {
+    @apply futuristic-card p-8 relative overflow-hidden hover:bg-gray-50;
+  }
+
+  .service-card h3 {
+    @apply text-xl font-semibold text-gray-900 mb-3;
+  }
+
+  .service-card p {
+    @apply text-gray-900 font-medium leading-relaxed;
+  }
+
+  .service-card::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-0.5 bg-blue-500;
+  }
+
+  .service-card:hover::before {
+    @apply h-full opacity-5 transition-all duration-300;
+  }
+
+  /* Button Styles */
+  .btn-primary {
+    @apply px-8 py-4 rounded-lg bg-gradient-to-r from-blue-600 to-blue-800 text-white 
+           font-semibold shadow-sm hover:shadow-md transition-all duration-300 
+           hover:scale-105 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-4 rounded-lg bg-white text-blue-600 border border-blue-600
+           font-semibold shadow-sm hover:shadow-md transition-all duration-300 
+           hover:scale-105 active:scale-95 hover:bg-blue-50;
+  }
+
+  /* Text Styles */
+  .title-on-gray {
+    @apply text-white;
+  }
+
+  .subtitle-on-gray {
+    @apply text-gray-300;
+  }
+
+  .title-on-light {
+    @apply text-3xl md:text-4xl font-bold text-gray-900;
+  }
+
+  .subtitle-on-light {
+    @apply text-xl text-gray-600;
+  }
+}
+
+/* Custom styles */
+.text-dark {
+  @apply text-gray-900 font-medium;
+}
+
+.hover\:text-blue-600:hover {
+  @apply text-blue-600;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Modern Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-blue-500 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-blue-600;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold text-gray-900;
+}
+
+h1 {
+  @apply text-4xl md:text-5xl;
+}
+
+h2 {
+  @apply text-3xl md:text-4xl;
+}
+
+h3 {
+  @apply text-2xl md:text-3xl;
+}
+
+p {
+  @apply text-gray-900 leading-relaxed;
+}
+
+/* Links */
+a {
+  @apply text-blue-600 hover:text-blue-700 transition-colors duration-200;
+}
+
+/* Lists */
+ul, ol {
+  @apply text-gray-900 space-y-2;
+}
+
+li {
+  @apply leading-relaxed;
+} 
